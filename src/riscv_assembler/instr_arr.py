@@ -98,8 +98,8 @@ class _S(Instruction):
 								return mod_imm, mod_imm_2'''
 		mod_imm = format(((1 << 12) - 1) & int(imm), '012b')
 		if n == 1:
-			return mod_imm[0] + mod_imm[12-10 : 12-4]
-		return mod_imm[12-4 : 12 - 0] + mod_imm[1]
+			return mod_imm[0:7]  # imm[11:5]
+		return mod_imm[7:12]  # imm[4:0]
 
 
 class _SB(Instruction):
